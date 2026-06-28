@@ -8,6 +8,10 @@ import {
 } from "./plagiarism.js";
 
 export function registerRoutes(app) {
+  app.get("/health", (_req, res) => {
+    res.json({ status: "ok" });
+  });
+
   app.post("/api/plagiarism-check", async (req, res) => {
     try {
       const { text } = checkTextSchema.parse(req.body);
